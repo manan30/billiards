@@ -1,14 +1,17 @@
 import React, { useRef } from 'react';
 import { useThree } from 'react-three-fiber';
-// import * as THREE from 'three';
+import * as THREE from 'three';
 
 import Floor from '../components/Floor';
 import AmbientLight from '../components/Lights/AmbientLight';
+import PoolBall from '../components/PoolBall';
+import Cube from '../components/Cube';
 // import PoolTable from '../components/PoolTable';
 
 function Scene() {
   const floorRef = useRef();
   const lightRef = useRef();
+  const poolBallRef = useRef();
 
   const { camera, scene, gl } = useThree();
 
@@ -26,13 +29,28 @@ function Scene() {
 
   camera.position.set(-5, 7, 5);
 
-  // const cameraHelper = new THREE.CameraHelper(camera);
-  // scene.add(cameraHelper);
+  const cameraHelper = new THREE.CameraHelper(camera);
+  scene.add(cameraHelper);
 
   return (
     <>
       <AmbientLight setRef={lightRef} color={0xffffff} intensity={2} />
       <Floor setRef={floorRef} />
+      <PoolBall setRef={poolBallRef} position={[0, 0.1, 0]} />
+      <PoolBall setRef={poolBallRef} position={[0.1, 0.1, 0.2]} />
+      <PoolBall setRef={poolBallRef} position={[-0.1, 0.1, 0.2]} />
+      <PoolBall setRef={poolBallRef} position={[0.2, 0.1, 0.4]} />
+      <PoolBall setRef={poolBallRef} position={[-0.2, 0.1, 0.4]} />
+      <PoolBall setRef={poolBallRef} position={[0, 0.1, 0.4]} />
+      <PoolBall setRef={poolBallRef} position={[0.3, 0.1, 0.6]} />
+      <PoolBall setRef={poolBallRef} position={[0.1, 0.1, 0.6]} />
+      <PoolBall setRef={poolBallRef} position={[-0.1, 0.1, 0.6]} />
+      <PoolBall setRef={poolBallRef} position={[-0.3, 0.1, 0.6]} />
+      <PoolBall setRef={poolBallRef} position={[0.4, 0.1, 0.8]} />
+      <PoolBall setRef={poolBallRef} position={[0.2, 0.1, 0.8]} />
+      <PoolBall setRef={poolBallRef} position={[0, 0.1, 0.8]} />
+      <PoolBall setRef={poolBallRef} position={[-0.2, 0.1, 0.8]} />
+      <PoolBall setRef={poolBallRef} position={[-0.4, 0.1, 0.8]} />
       {/* <PoolTable /> */}
     </>
   );
