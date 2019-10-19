@@ -11,10 +11,12 @@ function Cue({ setRef, position }) {
 }
 
 Cue.propTypes = {
+  setRef: PropTypes.objectOf(PropTypes.any),
   position: PropTypes.arrayOf(PropTypes.any)
 };
 
 Cue.defaultProps = {
+  setRef: {},
   position: [0, 0, 0]
 };
 
