@@ -1,32 +1,23 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useThree } from 'react-three-fiber';
-import * as THREE from 'three';
 
-import Floor from '../components/Floor';
-import AmbientLight from '../components/Lights/AmbientLight';
-import PoolBall from '../components/PoolBall';
-import Cube from '../components/Cube';
-// import PoolTable from '../components/PoolTable';
+import Light from '../components/Light';
+import PoolTable from '../components/PoolTable';
+
+import Constants from '../utils/Constants';
 
 function Scene() {
-  const floorRef = useRef();
-  const lightRef = useRef();
-  const poolBallRef = useRef();
+  const { camera, gl } = useThree();
 
-  const { camera, scene, gl } = useThree();
+  gl.setClearColor(0x151515, 1);
+  gl.shadowMap.enabled = false;
 
-  gl.setSize(window.innerWidth, window.innerHeight);
-  gl.shadowMap.enabled = true;
-  gl.antialias = true;
-  gl.physicallyCorrectLights = true;
-  gl.gammaInput = true;
-  gl.gammaOutput = true;
-
-  camera.fov = 23;
+  camera.fov = 45;
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.near = 0.1;
-  camera.far = 100;
+  camera.far = 1000;
 
+  camera.up.set(0, 0, 1);
   camera.position.set(-5, 7, 5);
 
   const cameraHelper = new THREE.CameraHelper(camera);
@@ -34,24 +25,27 @@ function Scene() {
 
   return (
     <>
-      <AmbientLight setRef={lightRef} color={0xffffff} intensity={2} />
-      <Floor setRef={floorRef} />
-      <PoolBall setRef={poolBallRef} position={[0, 0.1, 0]} />
-      <PoolBall setRef={poolBallRef} position={[0.1, 0.1, 0.2]} />
-      <PoolBall setRef={poolBallRef} position={[-0.1, 0.1, 0.2]} />
-      <PoolBall setRef={poolBallRef} position={[0.2, 0.1, 0.4]} />
-      <PoolBall setRef={poolBallRef} position={[-0.2, 0.1, 0.4]} />
-      <PoolBall setRef={poolBallRef} position={[0, 0.1, 0.4]} />
-      <PoolBall setRef={poolBallRef} position={[0.3, 0.1, 0.6]} />
-      <PoolBall setRef={poolBallRef} position={[0.1, 0.1, 0.6]} />
-      <PoolBall setRef={poolBallRef} position={[-0.1, 0.1, 0.6]} />
-      <PoolBall setRef={poolBallRef} position={[-0.3, 0.1, 0.6]} />
-      <PoolBall setRef={poolBallRef} position={[0.4, 0.1, 0.8]} />
-      <PoolBall setRef={poolBallRef} position={[0.2, 0.1, 0.8]} />
-      <PoolBall setRef={poolBallRef} position={[0, 0.1, 0.8]} />
-      <PoolBall setRef={poolBallRef} position={[-0.2, 0.1, 0.8]} />
-      <PoolBall setRef={poolBallRef} position={[-0.4, 0.1, 0.8]} />
-      {/* <PoolTable /> */}
+      {Constants.pointLightPositions.map((pos, i) => {
+        const idx = i;
+        return (
+          <Light
+            key={idx}
+            type='PointLight'
+            color={0xffffff}
+            intensity={0.4}
+            distance={100}
+            position={pos}
+            castShadow
+          />
+        );
+      })}
+      <Light
+        type='AmbientLight'
+        color={0xffffff}
+        intensity={0.2}
+        position={[0, 0, 0]}
+      />
+      <PoolTable />
     </>
   );
 }

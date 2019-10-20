@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import Proptypes from 'prop-types';
 import * as THREE from 'three';
 
-import floorTexture from '../Assets/textures/hardwood2_diffuse.jpg';
-import floorBumpTexture from '../Assets/textures/hardwood2_bump.jpg';
-import floorRoughnessTexture from '../Assets/textures/hardwood2_roughness.jpg';
+import floorTexture from '../assets/textures/hardwood2_diffuse.jpg';
+import floorBumpTexture from '../assets/textures/hardwood2_bump.jpg';
+import floorRoughnessTexture from '../assets/textures/hardwood2_roughness.jpg';
 
 function Floor({ setRef }) {
   const texture = useMemo(
