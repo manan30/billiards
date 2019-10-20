@@ -1,23 +1,16 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useThree } from 'react-three-fiber';
-// import * as THREE from 'three';
 
-import Floor from '../components/Floor';
-import AmbientLight from '../components/Lights/AmbientLight';
+import Light from '../components/Light';
 import PoolTable from '../components/PoolTable';
 
+import Constants from '../utils/Constants';
+
 function Scene() {
-  const floorRef = useRef();
-  const lightRef = useRef();
+  const { camera, gl } = useThree();
 
-  const { camera, scene, gl } = useThree();
-
-  gl.setSize(window.innerWidth, window.innerHeight);
-  gl.shadowMap.enabled = true;
-  gl.antialias = true;
-  gl.physicallyCorrectLights = true;
-  gl.gammaInput = true;
-  gl.gammaOutput = true;
+  gl.setClearColor(0x151515, 1);
+  gl.shadowMap.enabled = false;
 
   camera.fov = 45;
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -32,7 +25,26 @@ function Scene() {
 
   return (
     <>
-      <AmbientLight setRef={lightRef} color={0xffffff} intensity={2} />
+      {Constants.pointLightPositions.map((pos, i) => {
+        const idx = i;
+        return (
+          <Light
+            key={idx}
+            type='PointLight'
+            color={0xffffff}
+            intensity={0.4}
+            distance={100}
+            position={pos}
+            castShadow
+          />
+        );
+      })}
+      <Light
+        type='AmbientLight'
+        color={0xffffff}
+        intensity={0.2}
+        position={[0, 0, 0]}
+      />
       <PoolTable />
     </>
   );
