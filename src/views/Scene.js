@@ -4,7 +4,7 @@ import { useThree } from 'react-three-fiber';
 
 import Floor from '../components/Floor';
 import AmbientLight from '../components/Lights/AmbientLight';
-// import PoolTable from '../components/PoolTable';
+import PoolTable from '../components/PoolTable';
 
 function Scene() {
   const floorRef = useRef();
@@ -33,8 +33,7 @@ function Scene() {
   return (
     <>
       <AmbientLight setRef={lightRef} color={0xffffff} intensity={2} />
-      <Floor setRef={floorRef} />
-      {/* <PoolTable /> */}
+      <PoolTable />
     </>
   );
 }
