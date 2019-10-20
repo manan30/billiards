@@ -14,8 +14,6 @@ import playAreaTextureURL from '../assets/textures/cloth.jpg';
 import edgeTextureUrl from '../assets/textures/hardwood_floor.jpg';
 
 function PoolTable() {
-  // const poolTableRef = React.useRef();
-
   const pocketPositions = [
     [-12, 24, 0],
     [12, 24, 0],
