@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useThree } from 'react-three-fiber';
 
 import Light from '../components/Light';
 import PoolTable from '../components/PoolTable';
 
 import Constants from '../utils/Constants';
+import Cue from '../components/Cue';
 
 function Scene() {
+  const cueRef = useRef();
+
   const { camera, gl } = useThree();
 
   gl.setClearColor(0x151515, 1);
@@ -20,8 +23,8 @@ function Scene() {
   camera.up.set(0, 0, 1);
   camera.position.set(-5, 7, 5);
 
-  const cameraHelper = new THREE.CameraHelper(camera);
-  scene.add(cameraHelper);
+  // const cameraHelper = new THREE.CameraHelper(camera);
+  // scene.add(cameraHelper);
 
   return (
     <>
@@ -46,6 +49,7 @@ function Scene() {
         position={[0, 0, 0]}
       />
       <PoolTable />
+      <Cue setRef={cueRef} position={[0, 0, 0]} />
     </>
   );
 }
