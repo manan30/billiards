@@ -32,7 +32,7 @@ export const CodeFAB = styled.div`
 `;
 
 export const Canvas = styled(c)`
-  position: absolute;
+  position: absolute !important;
   top: 0;
   left: 0;
 `;

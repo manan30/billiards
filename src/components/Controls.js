@@ -4,21 +4,13 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 extend({ OrbitControls });
 
-function Controls() {
+function Controls(props) {
   const ref = useRef();
   const { camera, gl } = useThree();
 
   useRender(() => ref.current.update());
 
-  return (
-    <orbitControls
-      ref={ref}
-      args={[camera, gl.domElement]}
-      enableDamping
-      dampingFactor={0.1}
-      rotateSpeed={0.5}
-    />
-  );
+  return <orbitControls ref={ref} args={[camera, gl.domElement]} {...props} />;
 }
 
 export default Controls;
