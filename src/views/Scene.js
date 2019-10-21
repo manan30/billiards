@@ -95,10 +95,8 @@ function Scene() {
     return () => document.removeEventListener('keydown', KeyDownListerner);
   }, [cueRef]);
 
-  useFrame(({ scene }, delta) => {
+  useFrame((state, delta) => {
     const deltaTime = 60 * delta;
-    // if (clock > 2) return;
-    // console.log(scene.children[6].children);
     for (let i = 0; i < 16; i += 1) {
       for (let j = 0; j < 16; j += 1) {
         if (allBallRefs[i] !== allBallRefs[j]) {
@@ -109,8 +107,6 @@ function Scene() {
       Physics.moveBall(allBallRefs[i], deltaTime);
     }
   });
-  // const cameraHelper = new THREE.CameraHelper(camera);
-  // scene.add(cameraHelper);
 
   return (
     <>

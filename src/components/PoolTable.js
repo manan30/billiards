@@ -13,7 +13,7 @@ import {
 import playAreaTextureURL from '../assets/textures/cloth.jpg';
 import edgeTextureUrl from '../assets/textures/hardwood_floor.jpg';
 
-function PoolTable({ setRef }) {
+function PoolTable() {
   const pocketPositions = [
     [-12, 24, 0],
     [12, 24, 0],
@@ -83,7 +83,7 @@ function PoolTable({ setRef }) {
   const pocketMaterial = new MeshBasicMaterial({ color: 0x000000 });
 
   return (
-    <object3D ref={setRef} position={[0, 0, -1]}>
+    <object3D position={[0, 0, -1]}>
       <mesh receiveShadow>
         <boxGeometry attach='geometry' args={[24, 48, 1]} />
         <meshStandardMaterial
