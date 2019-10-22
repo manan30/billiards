@@ -13,10 +13,9 @@
   },
   "scripts": {
     "start": "BROWSER='FIREFOX DEVELOPER EDITION' react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
+  "homepage": "https://mananjoshi.me/projects/billiards",
   "eslintConfig": {
     "extends": "react-app"
   },
