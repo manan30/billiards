@@ -52,7 +52,7 @@ function Modal({ handler }) {
   return (
     <ModalBackground>
       <ModalContainer>
-        <ModalText>Please hit space bar to roll the cue ball</ModalText>
+        <ModalText>Please press space bar to hit the cue ball</ModalText>
         <ModalButton onClick={handler}>Ok</ModalButton>
       </ModalContainer>
     </ModalBackground>

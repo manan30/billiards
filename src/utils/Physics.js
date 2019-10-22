@@ -1,4 +1,11 @@
+import { Matrix4, Vector3 } from 'three';
 import Constants from './Constants';
+
+function pocketed(ballRef) {
+  ballRef.current.speed.x = 0;
+  ballRef.current.speed.y = 0;
+  ballRef.current.position.set(50, 50, 0);
+}
 
 function shoot(force, ref) {
   const angle = ref.current.rotation.z - (-90 * Math.PI) / 180;
@@ -88,6 +95,24 @@ function checkTableCollision(ballRef) {
   ) {
     ballRef.current.speed.y *= -1;
   }
+
+  if (
+    (ballRef.current.position.x - 1.3 < dimensions.topLeft.x &&
+      ballRef.current.position.y + 1.3 > dimensions.topLeft.y) ||
+    (ballRef.current.position.x + 1.3 > dimensions.topRight.x &&
+      ballRef.current.position.y + 1.3 > dimensions.topRight.y) ||
+    (ballRef.current.position.x - 1.3 < dimensions.bottomLeft.x &&
+      ballRef.current.position.y - 1.3 < dimensions.bottomLeft.y) ||
+    (ballRef.current.position.x + 1.3 > dimensions.bottomRight.x &&
+      ballRef.current.position.y - 1.3 < dimensions.bottomRight.y) ||
+    (ballRef.current.position.x - 0.5 < dimensions.topLeft.x &&
+      (ballRef.current.position.y < 1.2 &&
+        ballRef.current.position.y > -1.2)) ||
+    (ballRef.current.position.x + 0.5 > dimensions.topRight.x &&
+      (ballRef.current.position.y < 1.2 && ballRef.current.position.y > -1.2))
+  ) {
+    pocketed(ballRef);
+  }
 }
 
 function moveBall(ballRef, delta) {
@@ -104,6 +129,16 @@ function moveBall(ballRef, delta) {
     ballRef.current.position.y + stepY,
     0
   );
+
+  let tempMat = new Matrix4();
+  tempMat.makeRotationAxis(new Vector3(0, 1, 0), stepX / 0.5);
+  tempMat.multiply(ballRef.current.matrix);
+  ballRef.current.matrix = tempMat;
+  tempMat = new Matrix4();
+  tempMat.makeRotationAxis(new Vector3(1, 0, 0), -stepY / 0.5);
+  tempMat.multiply(ballRef.current.matrix);
+  ballRef.current.matrix = tempMat;
+  ballRef.current.rotation.setFromRotationMatrix(ballRef.current.matrix);
 }
 
 export default { shoot, checkBallCollision, checkTableCollision, moveBall };
