@@ -5,6 +5,8 @@ import Modal from './components/Modal';
 import Scene from './views/Scene';
 import Controls from './components/Controls';
 
+import Icon from './svg/ic_code.svg';
+
 function App() {
   const [modal, setModal] = useState(true);
   return (
@@ -27,7 +29,12 @@ function App() {
           maxPolarAngle={Math.PI / 2}
         />
       </Canvas>
-      <CodeFAB />
+      <a
+        href='https://github.com/manan30/billiards'
+        target='_blank'
+        rel='noopener noreferrer'>
+        <CodeFAB src={Icon} />
+      </a>
     </>
   );
 }
