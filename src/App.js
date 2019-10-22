@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Canvas, CodeFAB } from './GlobalStyles';
+import Modal from './components/Modal';
 import Scene from './views/Scene';
 import Controls from './components/Controls';
 
 function App() {
+  const [modal, setModal] = useState(true);
   return (
     <>
+      {modal && (
+        <Modal
+          handler={() => {
+            setModal(!modal);
+          }}
+        />
+      )}
       <Canvas>
         <Scene />
         <Controls

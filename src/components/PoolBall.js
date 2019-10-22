@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { TextureLoader } from 'three';
+import { TextureLoader, Vector2 } from 'three';
 
 function PoolBall({ setRef, position, textureURL }) {
   const ballTexture = useMemo(() => new TextureLoader().load(textureURL), [
@@ -8,7 +8,7 @@ function PoolBall({ setRef, position, textureURL }) {
   ]);
 
   return (
-    <mesh ref={setRef} position={position} castShadow>
+    <mesh ref={setRef} position={position} speed={new Vector2()} castShadow>
       <sphereGeometry attach='geometry' args={[0.5, 128, 128]} />
       <meshStandardMaterial
         attach='material'
