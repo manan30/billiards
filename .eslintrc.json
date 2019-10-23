@@ -19,6 +19,7 @@
   "plugins": ["react", "prettier", "react-hooks"],
   "rules": {
     "no-console": "off",
+    "no-param-reassign": "off",
     "react/jsx-filename-extension": [
       1,
       {

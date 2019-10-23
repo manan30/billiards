@@ -115,10 +115,10 @@ function checkTableCollision(ballRef) {
   }
 }
 
-function moveBall(ballRef, delta) {
+function moveBall(ballRef, delta, coeff) {
   // Setting rolling resistance.
-  ballRef.current.speed.x *= 1 - 0.01 * delta;
-  ballRef.current.speed.y *= 1 - 0.01 * delta;
+  ballRef.current.speed.x *= 1 - coeff * delta;
+  ballRef.current.speed.y *= 1 - coeff * delta;
 
   // Set new position according to x/y speed.
   const stepX = ballRef.current.speed.x * delta;

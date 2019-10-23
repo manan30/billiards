@@ -4,11 +4,13 @@ import { Canvas, CodeFAB } from './GlobalStyles';
 import Modal from './components/Modal';
 import Scene from './views/Scene';
 import Controls from './components/Controls';
+import Button from './components/Button';
 
 import Icon from './svg/ic_code.svg';
 
 function App() {
   const [modal, setModal] = useState(true);
+  const [coeff, setCoeff] = useState(0.01);
   return (
     <>
       {modal && (
@@ -18,8 +20,21 @@ function App() {
           }}
         />
       )}
+      <Button onClick={() => setCoeff(0.01)} text='Normal'>
+        Normal
+      </Button>
+      <Button
+        top='128px'
+        handler={() => setCoeff(0.03)}
+        text='Heavy Friction'
+      />
+      <Button
+        top='192px'
+        handler={() => setCoeff(0.001)}
+        text='Heavy Restitution'
+      />
       <Canvas>
-        <Scene />
+        <Scene coeff={coeff} />
         <Controls
           enableRotate
           enablePan={false}
