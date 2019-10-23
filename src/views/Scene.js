@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useThree, useFrame } from 'react-three-fiber';
 
 import Light from '../components/Light';
@@ -27,7 +27,7 @@ import fourteen from '../assets/textures/14.png';
 import fifteen from '../assets/textures/15.png';
 import Physics from '../utils/Physics';
 
-function Scene() {
+function Scene({ coeff }) {
   const poolTableRef = useRef();
   const cueRef = useRef();
   const zeroBallRef = useRef();
@@ -104,7 +104,7 @@ function Scene() {
         }
       }
       Physics.checkTableCollision(allBallRefs[i], poolTableRef);
-      Physics.moveBall(allBallRefs[i], deltaTime);
+      Physics.moveBall(allBallRefs[i], deltaTime, coeff);
     }
   });
 

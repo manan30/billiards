@@ -40,7 +40,7 @@ const ModalButton = styled.div`
   background: black;
   color: white;
   padding: 10px;
-  border-radius: 10%;
+  border-radius: 10px;
   cursor: pointer;
 
   :hover {
