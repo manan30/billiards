@@ -20,7 +20,7 @@ function App() {
           }}
         />
       )}
-      <Button onClick={() => setCoeff(0.01)} text='Normal'>
+      <Button handler={() => setCoeff(0.01)} text='Normal'>
         Normal
       </Button>
       <Button
