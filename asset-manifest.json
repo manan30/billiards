@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.js": "/manan30/billiards/static/js/main.a62bb38b.chunk.js",
+    "main.js.map": "/manan30/billiards/static/js/main.a62bb38b.chunk.js.map",
+    "runtime-main.js": "/manan30/billiards/static/js/runtime-main.4c321a7d.js",
+    "runtime-main.js.map": "/manan30/billiards/static/js/runtime-main.4c321a7d.js.map",
+    "static/js/2.caaa3000.chunk.js": "/manan30/billiards/static/js/2.caaa3000.chunk.js",
+    "static/js/2.caaa3000.chunk.js.map": "/manan30/billiards/static/js/2.caaa3000.chunk.js.map",
+    "index.html": "/manan30/billiards/index.html",
+    "precache-manifest.e6d4625aaf8e554e2a25aa1c08e6cd18.js": "/manan30/billiards/precache-manifest.e6d4625aaf8e554e2a25aa1c08e6cd18.js",
+    "service-worker.js": "/manan30/billiards/service-worker.js",
+    "static/media/0.png": "/manan30/billiards/static/media/0.e448b315.png",
+    "static/media/1.png": "/manan30/billiards/static/media/1.0d1adf35.png",
+    "static/media/10.png": "/manan30/billiards/static/media/10.c75ecd31.png",
+    "static/media/11.png": "/manan30/billiards/static/media/11.78cb5f35.png",
+    "static/media/12.png": "/manan30/billiards/static/media/12.cee778bb.png",
+    "static/media/13.png": "/manan30/billiards/static/media/13.0c63b38f.png",
+    "static/media/14.png": "/manan30/billiards/static/media/14.0b65be63.png",
+    "static/media/15.png": "/manan30/billiards/static/media/15.b11742ec.png",
+    "static/media/2.png": "/manan30/billiards/static/media/2.9be16ecf.png",
+    "static/media/3.png": "/manan30/billiards/static/media/3.248246c1.png",
+    "static/media/4.png": "/manan30/billiards/static/media/4.5164ac33.png",
+    "static/media/5.png": "/manan30/billiards/static/media/5.053b4de0.png",
+    "static/media/6.png": "/manan30/billiards/static/media/6.ba87c3ae.png",
+    "static/media/7.png": "/manan30/billiards/static/media/7.67436792.png",
+    "static/media/8.png": "/manan30/billiards/static/media/8.828ce1c4.png",
+    "static/media/9.png": "/manan30/billiards/static/media/9.435dd3d6.png",
+    "static/media/cloth.jpg": "/manan30/billiards/static/media/cloth.d65b9f45.jpg",
+    "static/media/hardwood_floor.jpg": "/manan30/billiards/static/media/hardwood_floor.418f71e5.jpg",
+    "static/media/ic_code.svg": "/manan30/billiards/static/media/ic_code.1c9bd072.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4c321a7d.js",
+    "static/js/2.caaa3000.chunk.js",
+    "static/js/main.a62bb38b.chunk.js"
+  ]
+}
