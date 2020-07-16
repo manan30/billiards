@@ -6,7 +6,7 @@ A rudimentary game of pooltable made using React, three js and react-three-fiber
 
 ## Demo
 
-[A working demo can be found here](https://mananjoshi.me/projects/billiards/index.html)
+[A working demo can be found here](https://manan30.github.io/billiards/)
 
 ![Shot](https://mananjoshi.me/img/pool.png)
 
