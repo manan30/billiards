@@ -4,18 +4,20 @@
   "private": true,
   "dependencies": {
     "prop-types": "15.7.2",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-scripts": "3.2.0",
     "react-three-fiber": "3.0.3",
     "styled-components": "4.4.0",
     "three": "0.109.0"
   },
   "scripts": {
-    "start": "BROWSER='FIREFOX DEVELOPER EDITION' react-scripts start",
-    "build": "react-scripts build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "homepage": "https://mananjoshi.me/projects/billiards",
+  "homepage": "https://manan30.github.io/billiards/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -39,6 +41,7 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.1",
     "eslint-plugin-react": "7.15.1",
-    "eslint-plugin-react-hooks": "1.7.0"
+    "eslint-plugin-react-hooks": "1.7.0",
+    "gh-pages": "3.1.0"
   }
 }
